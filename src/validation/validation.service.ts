@@ -51,14 +51,11 @@ export class ValidationService {
         if (!regExpCustomFirstName.test(userModel.password)) {
             returnValue = false;
             this.validationMessagesArray.push(PASSWORD_VALIDATION_ERROR_FIRSTNAME);
-            console.log('validatePasswordNamePatterns', 'firstName', userModel.firstName, userModel.password);
         } else if (!regExpCustomLastName.test(userModel.password)) {
             returnValue = false;
             this.validationMessagesArray.push(PASSWORD_VALIDATION_ERROR_LASTNAME);
-            console.log('validatePasswordNamePatterns', 'lastName', userModel.lastName, userModel.password);
         } else if (!this.validatePassword(userModel.password)) {
             returnValue = false;
-            console.log('validatePasswordNamePatterns', 'password', userModel.password, userModel.password);
         }
 
         return returnValue;

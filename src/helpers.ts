@@ -6,13 +6,10 @@ export const getDatabaseconnectionString = (pass) => {
     // pass should come from non disclosed config var
     let connectionString: string;
     if (process.env.DEPLOY ===  DEPLOY_PRODUCTION) {
-        console.log('dBConnectionString::master');
         connectionString = `mongodb+srv://${pass}@cluster0.fl1l4.mongodb.net/fdx-master?retryWrites=true&w=majority`;
     } else {
-        console.log('dBConnectionString::dev');
         connectionString = `mongodb+srv://${pass}@cluster0.fl1l4.mongodb.net/fdx-dev?retryWrites=true&w=majority`;
     }
-    
     return connectionString;
 }
 

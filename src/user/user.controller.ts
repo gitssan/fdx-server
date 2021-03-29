@@ -58,8 +58,6 @@ export class UserController {
             message = { feedback: SIGN_UP_ERROR, log };
         }
 
-        console.log('handleUserSignUp', httpStatus, loggedInUser, createdUser);
-
         const fdxResult: IFdxResult = { message, userModel: loggedInUser } as IFdxResult;
         return res.status(httpStatus).json(fdxResult);
     }
@@ -75,12 +73,9 @@ export class UserController {
         if (loggedInUserId) {
             try {
                 const logedOutUser = await this.UserService.update(loggedInUserId, { modifiedAt: new Date() } as UserDTO);
-                console.log(SUCCESSFULLY_LOGGED_OUT, logedOutUser);
-
                 httpStatus = HttpStatus.OK;
                 fdxResult = { message: SUCCESSFULLY_LOGGED_OUT } as IFdxResult;
             } catch (err) {
-                console.log('err', err);
                 httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
                 return res.status(httpStatus).json({});
             }
