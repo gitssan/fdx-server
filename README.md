@@ -30,6 +30,21 @@ $ npm install
 $ npm run start
 
 ```
+http://localhost:3000
+
+## Running the app
+
+```bash
+
+$ npm run start
+
+```
+
+## Testing (unit, API): Jest + coverage
+
+```bash
+$ npm run test
+```
 
 ## Online demo
 
